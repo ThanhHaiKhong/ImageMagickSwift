@@ -9,7 +9,7 @@ let package = Package(
         .library(
             name: "ImageMagickSwift",
             targets: ["ImageMagickSwift"]
-        )
+        ),
     ],
     dependencies: [],
     targets: [
@@ -29,5 +29,10 @@ let package = Package(
                 .unsafeFlags(["-L", "/opt/homebrew/Cellar/imagemagick/7.1.1-39/lib"])
             ]
         ),
+        .testTarget(
+            name: "ImageMagickSwiftTests",
+            dependencies: ["ImageMagickSwift"],
+            path: "./Tests"
+        )
     ]
 )
